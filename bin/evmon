@@ -1,6 +1,6 @@
 #!/bin/sh
-bbase=`which $0`
-ENVMON_DIR=`dirname $bbase`
+bbase=$(command -v "$0")
+CTRL_EVMON_DIR=$(dirname "$bbase")
 export JAVA_OPTIONS="-Xms512M -Xmx512M"
 export JYTHON_CLASSPATH=$CTRL_EVMON_DIR/python:$CTRL_EVMON_DIR/lib/evmon.jar:$ACTIVEMQ_DIR/activemq-all-5.2.0.jar:$CTRL_EVMON_DIR/lib/mysql-connector-java-5.0.6-bin.jar
-jython -Dpython.path=$JYTHON_CLASSPATH $*
+jython -Dpython.path="$JYTHON_CLASSPATH" "$@"
